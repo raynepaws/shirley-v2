@@ -1,0 +1,8 @@
+{
+  "name": "shirley",
+  "version": "2.0.0",
+  "private": true,
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
