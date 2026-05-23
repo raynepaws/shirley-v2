@@ -8,6 +8,7 @@
   "main": "./dist/index.js",
   "type": "module",
   "devDependencies": {
+    "@types/discord-rpc": "^4.0.10",
     "typescript": "^6.0.3"
   },
   "dependencies": {
