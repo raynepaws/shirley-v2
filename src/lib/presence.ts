@@ -1,4 +1,5 @@
-import { ActivitiesOptions, PresenceStatusData } from "discord.js";
+import { ActivitiesOptions, ActivityType, PresenceStatusData } from "discord.js";
+import { client } from "./client.js";
 
 export type Presence = string | {
   content?: string | (() => string),
@@ -56,3 +57,21 @@ export const presences: Presence[] = [
   "mrrr",
   "mrrp"
 ];
+
+export const setPresence = () => {
+  let presence: Presence;
+  let matchesCriteria;
+  do {
+    presence = presences[Math.floor(Math.random() * presences.length)];
+    matchesCriteria = typeof presence === "string" || !presence.criteria || presence.criteria();
+  } while (!matchesCriteria)
+  let activities = typeof presence === "string" ? [] : presence.activities ?? [];
+  if (typeof presence === "string" || (typeof presence === "object" && presence.content)) activities.push({
+    name: typeof presence === "string" ? presence : typeof presence.content === "function" ? presence.content() : presence.content!,
+    type: ActivityType.Custom
+  });
+  client.user?.setPresence({
+    activities,
+    status: typeof presence === "string" ? "online" : presence.status ?? "online"
+  })
+};
