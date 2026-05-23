@@ -2,6 +2,7 @@ import { ActivityType } from "discord.js";
 import { client } from "./lib/client.js";
 import { configDotenv } from "dotenv";
 import { env, exit } from "node:process";
+import { log } from "./lib/log.js";
 import { Presence, presences } from "./lib/statuses.js";
 
 configDotenv({
@@ -14,8 +15,12 @@ if (!token) {
   exit(1);
 }
 
+process.on("uncaughtException", (error) => {
+  log(error.stack ?? error.message);
+});
+
 await client.login(token);
-console.log("Logged in");
+log("Logged in");
 
 const setPresence = () => {
   let presence: Presence;
