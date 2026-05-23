@@ -2,7 +2,16 @@
   "name": "shirley",
   "version": "2.0.0",
   "private": true,
+  "scripts": {
+    "dev": "tsc && node ."
+  },
+  "main": "./dist/index.js",
+  "type": "module",
   "devDependencies": {
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "discord.js": "^14.26.4",
+    "dotenv": "^17.4.2"
   }
 }
