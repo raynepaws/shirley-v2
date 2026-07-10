@@ -1,3 +1,5 @@
+import { Snowflake } from "discord.js";
+
 export const channels = {
   // readme
   hi: "1329212337030299719",
@@ -33,6 +35,7 @@ export const channels = {
 
   // voice channels
   generalVc: "1327892347954008177",
+  whatsAStage: "1517251412298301480",
 
   // archive
   addressingTheArguments: "1387910137494376509",
@@ -51,4 +54,4 @@ export const channels = {
   translationsOld: "1385431003367211130",
   timeoutCorner: "1373869268138983495",
   devThing: "1371241007588446249"
-};
+} satisfies Record<string, Snowflake>;
