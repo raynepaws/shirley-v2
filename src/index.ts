@@ -15,7 +15,7 @@ if (!token) {
 }
 
 process.on("uncaughtException", (error) => {
-  log(error.stack ?? error.message);
+  log("```\n" + (error.stack ?? error.message) + "\n```");
 });
 
 await client.login(token);
