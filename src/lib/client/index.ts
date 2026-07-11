@@ -1,4 +1,6 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
+import { env, exit } from "node:process";
+import { log } from "../log.js";
 
 export const client = new Client({
   intents: [
@@ -37,3 +39,14 @@ export const client = new Client({
     Partials.User
   ]
 });
+
+export const login = async () => {
+  const token = env.DISCORD_TOKEN;
+  if (!token) {
+    console.error("DISCORD_TOKEN environment variable is required");
+    exit(1);
+  }
+
+  await client.login(token);
+  log("Logged in");
+}

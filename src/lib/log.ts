@@ -1,5 +1,5 @@
 import { channels } from "./channels.js";
-import { client } from "./client.js";
+import { client } from "./client/index.js";
 
 export const log = async (data: string) => {
   console.log(data);
