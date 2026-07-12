@@ -1,6 +1,6 @@
 import { channels } from "../channels.js";
 import { client } from "./index.js";
-import { ButtonBuilder, ButtonStyle, ContainerBuilder, Guild, GuildAuditLogsEntry, MessageFlags, SectionBuilder, SeparatorBuilder, SeparatorSpacingSize, Snowflake, TextChannel, TextDisplayBuilder } from "discord.js";
+import { AttachmentBuilder, ButtonBuilder, ButtonStyle, ContainerBuilder, FileBuilder, Guild, GuildAuditLogsEntry, MediaGalleryBuilder, MediaGalleryItemBuilder, MessageFlags, SectionBuilder, SeparatorBuilder, SeparatorSpacingSize, Snowflake, TextChannel, TextDisplayBuilder } from "discord.js";
 
 const messageLogs = async () => await client.channels.fetch(channels.messageLogs) as TextChannel;
 
@@ -24,7 +24,27 @@ client.on("messageDelete", async (message) => {
     ]).addTextDisplayComponents([
       new TextDisplayBuilder().setContent(message.content)
     ]);
-  await (await messageLogs()).send({ 
+  const images = message.attachments.filter((value) => value.width);
+  const nonImages = message.attachments.filter((value) => !value.width);
+  if (images.size > 0) container = container.addMediaGalleryComponents([
+      new MediaGalleryBuilder().addItems(images.map(
+        (value) => new MediaGalleryItemBuilder()
+          .setDescription(value.description ?? "file")
+          .setURL(value.proxyURL)
+          .setSpoiler(value.spoiler)
+      ))
+    ]);
+  if (nonImages.size > 0) {
+    container = container.addFileComponents(nonImages.map(
+      (value) => {
+        return new FileBuilder()
+          .setURL(`attachment://${value.name}`)
+          .setSpoiler(value.spoiler);
+      }
+    ))
+  }
+  await (await messageLogs()).send({
+    files: nonImages.toJSON(),
     components: [container],
     flags: [MessageFlags.IsComponentsV2],
     allowedMentions: {}
