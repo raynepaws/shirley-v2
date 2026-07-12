@@ -1,4 +1,5 @@
 import { login } from "./lib/client/index.js";
+import "./lib/client/moderation.js";
 import "./lib/client/reactions.js";
 import { configDotenv } from "dotenv";
 import { setPresence } from "./lib/presence.js";
