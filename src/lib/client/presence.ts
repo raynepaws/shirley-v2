@@ -12,15 +12,14 @@ export const presences: Presence[] = [
   "dancing in the rain",
   ":3",
   ">w<",
-  "meow",
-  "hehe",
   "blep",
   {
     content: "yawn",
     criteria: () => {
       const hours = new Date().getHours();
       return hours > 5 && hours < 8
-    }
+    },
+    status: "idle"
   },
   {
     content: "good morning",
@@ -49,13 +48,55 @@ export const presences: Presence[] = [
   },
   "yes beans",
   "flan is yummy",
-  "hai",
-  "hawwo",
-  "nya",
-  "mreow",
-  "meow meow",
   "mrrr",
-  "mrrp"
+  "what's updog",
+  "woof",
+  "channeling my inner cloud",
+  "bark arf ruff",
+  "shocking",
+  {
+    criteria: () => Math.random() > 0.9999,
+    content: "super rare"
+  },
+  "choo choo chaos",
+  "unicorns and rainbows",
+  "nitrobolt",
+  "warp",
+  "why do they call it oven when you of in the cold food of out hot eat the food",
+  ":rayne_wag:",
+  "oatmeal",
+  "what's joe",
+  "aDo not nelon that",
+  "do j",
+  "goganon",
+  "youre a calibri knockoff",
+  "do your eyes support jpg export?",
+  "watch .3. y-y-yo tonye :3 mf",
+  "shut up before i open a nature valley bar on your bed",
+  "that's it rayne",
+  "keeping it quirktastic",
+  "MOV?? No",
+  "Are you keeping it skibidi and rizztastic",
+  "I didn't know you were freaky like that rayne",
+  "bouncy balls that give money on impact against the floor incremental",
+  "shimp",
+  "the forbidden granola",
+  "no more toe",
+  "all the a",
+  "hai eiza",
+  "Warning: Supplying \"ephemeral\" for interaction response options is deprecated. Utilize flags instead.",
+  "naahhhh what's mystery Michael doing???? 💀☠️☠️☠️☠️☠️☠️",
+  "I'm not a number so",
+  "bet that's mod-furry-roleplay",
+  "command received, shooting mater. 🔫 splish splash",
+  "CEO | Scratch Coders® 👑",
+  "it's not MaterArc without the usual out of context mistakes!",
+  "holy lols i say lol a lot lol",
+  "I just need to debug the debugger",
+  "Fifth place: with one vote",
+  "This week, 0 people chatted, and 0 people were active. Altogether, people gained 0 XP this week.",
+  "<function=text2img{\"prompt\": \"a Scrubby robot with a broken brain\", \"size\": \"landscape_16_9\"}</function>",
+  "I like icecream because if i didnt then i wouldnt Ate it"
 ];
 
 export const setPresence = () => {
