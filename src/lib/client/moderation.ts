@@ -17,7 +17,7 @@ client.on("messageDelete", async (message) => {
   });
   let container = new ContainerBuilder()
     .addTextDisplayComponents([
-      new TextDisplayBuilder().setContent(`### :x: Message Deleted\n${message.author ? `-# from <@${message.author.id}> ` : ""}in <#${message.channelId}>${executor ? `\n-# deleted by <@${executor}>` : ""}\n-# Sent on <t:${Math.floor(message.createdTimestamp / 1000)}:f>`)
+      new TextDisplayBuilder().setContent(`### :wastebasket: Message Deleted\n${message.author ? `-# from <@${message.author.id}> ` : ""}in <#${message.channelId}>${executor ? `\n-# deleted by <@${executor}>` : ""}\n-# Sent on <t:${Math.floor(message.createdTimestamp / 1000)}:f>`)
     ]);
   if (message.content) container = container.addSeparatorComponents([
       new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Small)
@@ -66,7 +66,7 @@ client.on("messageUpdate", async (oldMessage, newMessage) => {
       ]).addSectionComponents([
         new SectionBuilder()
           .addTextDisplayComponents([
-            new TextDisplayBuilder().setContent("_ _")
+            new TextDisplayBuilder().setContent(`-# <t:${Math.floor(newMessage.createdTimestamp / 1000)}:f>`)
           ])
           .setButtonAccessory(
             new ButtonBuilder()
