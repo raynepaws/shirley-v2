@@ -7,6 +7,7 @@ export const data = new SlashCommandBuilder()
     input
       .setName("code")
       .setDescription("the code")
+      .setRequired(true)
   );
 
 export const execute = async (interaction: ChatInputCommandInteraction<CacheType>) => {

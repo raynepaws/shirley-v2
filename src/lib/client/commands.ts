@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { readdir } from "node:fs/promises";
 
 client.commands = new Collection();
-const foldersPath = join(__dirname, "commands");
+const foldersPath = join(import.meta.dirname, "commands");
 const commandFolders = await readdir(foldersPath);
 
 for (const folder of commandFolders) {
@@ -12,7 +12,7 @@ for (const folder of commandFolders) {
 	const commandFiles = (await readdir(commandsPath)).filter((file) => file.endsWith(".js"));
 	for (const file of commandFiles) {
 		const filePath = join(commandsPath, file);
-		const command = require(filePath);
+		const command = await import(filePath);
 		if ("data" in command && "execute" in command) {
 			client.commands.set(command.data.name, command);
 		} else {
