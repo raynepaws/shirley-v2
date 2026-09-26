@@ -1,5 +1,5 @@
 import { ActivitiesOptions, ActivityType, PresenceStatusData } from "discord.js";
-import { client } from "./client/index.js";
+import { client } from "./index.js";
 
 export type Presence = string | {
   content?: string | (() => string),

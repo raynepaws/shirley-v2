@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "dev": "tsc && node ."
+    "dev": "tsc && node .",
+    "cmds": "tsc && node ./scripts/deploy-commands.js"
   },
   "main": "./dist/index.js",
   "type": "module",
@@ -12,7 +13,6 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
-    "discord.js": "^14.26.4",
-    "dotenv": "^17.4.2"
+    "discord.js": "^14.26.4"
   }
 }

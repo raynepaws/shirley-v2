@@ -1,6 +1,7 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
-import { env, exit } from "node:process";
+import { exit } from "node:process";
 import { log } from "../log.js";
+import { token } from "../../../config.json";
 
 export const client = new Client({
   intents: [
@@ -41,9 +42,8 @@ export const client = new Client({
 });
 
 export const login = async () => {
-  const token = env.DISCORD_TOKEN;
   if (!token) {
-    console.error("DISCORD_TOKEN environment variable is required");
+    console.error("Token is required");
     exit(1);
   }
 
