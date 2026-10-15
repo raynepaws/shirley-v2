@@ -4,6 +4,7 @@ import "./lib/client/commands.js";
 import "./lib/client/moderation.js";
 import "./lib/client/reactions.js";
 import { setPresence } from "./lib/client/presence.js";
+import { setUpRandomAnnouncements } from "./lib/client/announcements.js";
 import { log } from "./lib/log.js";
 
 process.on("uncaughtException", (error) => {
@@ -14,3 +15,4 @@ await login();
 
 setPresence();
 setInterval(setPresence, 60_000);
+setUpRandomAnnouncements();

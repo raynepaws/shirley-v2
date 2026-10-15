@@ -59,3 +59,13 @@ client.on("guildMemberRemove", async (member) => {
     flags: [MessageFlags.IsComponentsV2]
   });
 });
+
+export const setUpRandomAnnouncements = () => {
+  setInterval(async () => {
+    if (Math.random() < 0.4) return;
+
+    const today = new Date();
+
+    if (today.getMonth() === 10 || today.getMonth() === 11) return await (await client.channels.fetch(channels.general) as TextChannel).send(":jack_o_lantern:");
+  }, 3600);
+};
