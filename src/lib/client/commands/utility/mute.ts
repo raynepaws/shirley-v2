@@ -29,7 +29,7 @@ export const execute = async (interaction: ChatInputCommandInteraction<CacheType
       new ContainerBuilder()
         .addTextDisplayComponents([
           new TextDisplayBuilder()
-            .setContent(`timed <@${userId}> out for **${duration}** seconds`)
+            .setContent(`Timed <@${userId}> out for **${duration}** seconds`)
         ])
     ],
     flags: [MessageFlags.IsComponentsV2],
