@@ -6,6 +6,9 @@ import "./lib/client/reactions.js";
 import { setPresence } from "./lib/client/presence.js";
 import { setUpRandomAnnouncements } from "./lib/client/announcements.js";
 import { log } from "./lib/log.js";
+import { configDotenv } from "dotenv";
+
+configDotenv({ quiet: true });
 
 process.on("uncaughtException", (error) => {
   log("```\n" + (error.stack ?? error.message) + "\n```");

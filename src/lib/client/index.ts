@@ -1,7 +1,6 @@
 import { Client, GatewayIntentBits, Partials } from "discord.js";
 import { exit } from "node:process";
 import { log } from "../log.js";
-import config from "../../../config.json" with { type: "json" };
 
 export const client = new Client({
   intents: [
@@ -42,11 +41,11 @@ export const client = new Client({
 });
 
 export const login = async () => {
-  if (!config.token) {
+  if (!process.env.TOKEN) {
     console.error("Token is required");
     exit(1);
   }
 
-  await client.login(config.token);
+  await client.login(process.env.TOKEN);
   log("Logged in");
 }
