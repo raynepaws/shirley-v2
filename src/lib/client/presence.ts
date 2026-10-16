@@ -96,7 +96,16 @@ export const presences: Presence[] = [
   "Fifth place: with one vote",
   "This week, 0 people chatted, and 0 people were active. Altogether, people gained 0 XP this week.",
   "<function=text2img{\"prompt\": \"a Scrubby robot with a broken brain\", \"size\": \"landscape_16_9\"}</function>",
-  "I like icecream because if i didnt then i wouldnt Ate it"
+  "I like icecream because if i didnt then i wouldnt Ate it",
+  "does shirley have any snorfield original quotes",
+  "We're at the point where anyone can make a snack without knowing how to cook",
+  "Is your profile picture a club penguin character",
+  "hi i'm shirley",
+  "the answer will shock you",
+  "melon",
+  "yea i'm kinda a freak...",
+  "Hi",
+  "i'm infeckted"
 ];
 
 export const setPresence = () => {

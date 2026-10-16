@@ -17,5 +17,5 @@ process.on("uncaughtException", (error) => {
 await login();
 
 setPresence();
-setInterval(setPresence, 60_000);
+setInterval(setPresence, 150_000);
 setUpRandomAnnouncements();
