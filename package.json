@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "start": "tsc && node .",
+    "build": "tsc",
+    "start": "node .",
     "cmds": "tsc && node ./scripts/deploy-commands.js"
   },
   "main": "./dist/index.js",
