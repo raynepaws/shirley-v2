@@ -13,14 +13,3 @@ client.on("messageCreate", (message) => {
       }
   }
 });
-
-client.on("messageReactionAdd", (reaction, user) => {
-    if (reaction.partial) return;
-    if (user.bot) return;
-
-    if (reaction?.message.channelId === art) {
-        if (reaction.emoji.name === "🍮") {
-            reaction.users.remove(client.user.id);
-        }
-    }
-});
