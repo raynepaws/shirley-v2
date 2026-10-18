@@ -8,8 +8,6 @@ client.on("messageCreate", (message) => {
       const snapshot = message.messageSnapshots.first();
       const hasAttachment = (message?.attachments.size > 0) || (snapshot?.attachments.size > 0);
 
-      if (hasAttachment) {
-          message.react("🍮");
-      }
+      if (hasAttachment) message.react("🍮");
   }
 });
